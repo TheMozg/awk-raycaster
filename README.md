@@ -6,6 +6,8 @@ Bring some old-school fun to your terminal! Explore the dungeon and shoot monste
 #Running the game
 `gawk -f awkaster.awk`
 
+You need `gawk` version >= `4.0.0`
+
 #How to play
 Your objective is to navigate the map and activate exit elevator, killing hoards of monsters in the process.
 
