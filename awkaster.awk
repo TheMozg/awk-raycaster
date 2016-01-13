@@ -528,7 +528,7 @@ function main()
       planeX = planeX * cos(rot) - planeY * sin(rot)
       planeY = oldPlaneX * sin(rot) + planeY * cos(rot)
     }
-    if(input == "p" && reloadTimeLeft == 0){
+    if((input == "p" || input == " ") && reloadTimeLeft == 0){
       shoot()
       reloadTimeLeft = reloadTime
     }
