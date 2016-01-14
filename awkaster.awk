@@ -498,12 +498,24 @@ function main()
     close(cmd)
     system("stty echo")
 
-    if (input == "w" || input == "s"){
-      newPosX = posX - dirX * moveSpeed;
-      newPosY = posY - dirY * moveSpeed;
-      if (input == "w") {
+    if (input == "w" || input == "s" || input == "q" || input == "e"){
+      switch (input) {
+      case "w":
         newPosX = posX + dirX * moveSpeed;
         newPosY = posY + dirY * moveSpeed;
+        break
+      case "s":
+        newPosX = posX - dirX * moveSpeed;
+        newPosY = posY - dirY * moveSpeed;
+        break
+      case "q":
+        newPosX = posX - dirY * moveSpeed;
+        newPosY = posY + dirX * moveSpeed;
+        break
+      case "e":
+        newPosX = posX + dirY * moveSpeed;
+        newPosY = posY - dirX * moveSpeed;
+        break
       }
       ok = 1;
       for(i in sprite) {
@@ -540,8 +552,6 @@ function main()
       colormode = 3
     if(input == "4")
       colormode = 4
-    if(input == "q")
-      break
     if(input == "x" && moves == 0){
       moves = -1
       break
