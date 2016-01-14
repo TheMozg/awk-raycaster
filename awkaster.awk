@@ -493,7 +493,9 @@ function main()
     redraw();
 
     system("stty -echo")
-    cmd = "bash -c 'read -n 1 input; echo $input'"
+    #avoids depending on bash and gawk
+    #by izabera from #bash on freenode
+    cmd = "saved=$(stty -g); stty raw; var=$(dd bs=1 count=1 2>/dev/null); stty \"$saved\"; echo \"$var\""
     cmd | getline input
     close(cmd)
     system("stty echo")
