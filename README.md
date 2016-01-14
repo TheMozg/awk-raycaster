@@ -26,3 +26,15 @@ Ray casting is a simple rendering algorithm that doesn't require any 3d modeling
 
 You can find an excellent tutorial here:
 http://lodev.org/cgtutor/raycasting.html
+
+#OSX
+
+OSX users need to have gawk installed.
+
+Using Homebrew do:
+
+    homebrew update
+	
+	brew install gawk
+
+Your machine will now be ready to run it.
