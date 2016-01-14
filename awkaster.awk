@@ -542,7 +542,7 @@ function main()
       colormode = 4
     if(input == "q")
       break
-    if(input == "x" && moves == 0){
+    if(input == "x" && moves == 0 && inPosition()){
       moves = -1
       break
     }
