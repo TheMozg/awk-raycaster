@@ -29,7 +29,7 @@ http://lodev.org/cgtutor/raycasting.html
 
 #OSX
 
-OSX users neeg to have gawk installed.
+OSX users need to have gawk installed.
 
 Using Homebrew do:
 
