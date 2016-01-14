@@ -13,6 +13,7 @@ Your objective is to navigate the map and activate exit elevator, killing hoards
 
 Controls:
 * WASD - movement
+* J/L - turn
 * p - shoot
 * num 1-4 - change color mode (4 is my favorite)
 * x - activate elevator (arrives after 1000 moves)
