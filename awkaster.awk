@@ -191,7 +191,7 @@ function fillBackground(){
 }
 
 function redraw(){
-  str = "\n\n\n\n\n\n"
+  str = "\x1bH"
   for(y = 0; y < h-2; y++){
     for(x = 0; x < w; x++){
       str = str buffer[x,y]
