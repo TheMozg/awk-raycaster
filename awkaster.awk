@@ -191,16 +191,16 @@ function fillBackground(){
 }
 
 function redraw(){
-  str = "\n\n\n\n\n\n"
+  printf "\033[H"
   for(y = 0; y < h-2; y++){
+    str = ""
     for(x = 0; x < w; x++){
       str = str buffer[x,y]
     }
-    if(y < h-3)
-      str = str "\n"
+    print str
   }
-  print str
   drawUI()
+  printf "\033[J"
 }
 
 function drawUI(){
