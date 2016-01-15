@@ -9,15 +9,14 @@ Bring some old-school fun to your terminal! Explore the dungeon and shoot monste
 You need `gawk` version >= `4.0.0`
 
 
-OS X users must install gawk first.
+OS X users must install gawk first. The easiest way to do this is to use [Homebrew](http://brew.sh/)
 
-Using Homebrew do:
-
-    homebrew update
+Once [Homebrew](http://brew.sh/) has been installed, run the following commands.
+    brew update
     	
     brew install gawk
 
-Your machine will now be ready to run it.
+Your machine will now be ready to run *awkaster*.
 
 #How to play
 Your objective is to navigate the map and activate exit elevator, killing hoards of monsters in the process.
