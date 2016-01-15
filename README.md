@@ -8,6 +8,17 @@ Bring some old-school fun to your terminal! Explore the dungeon and shoot monste
 
 You need `gawk` version >= `4.0.0`
 
+
+OS X users must install gawk first.
+
+Using Homebrew do:
+
+    homebrew update
+    	
+    brew install gawk
+
+Your machine will now be ready to run it.
+
 #How to play
 Your objective is to navigate the map and activate exit elevator, killing hoards of monsters in the process.
 
