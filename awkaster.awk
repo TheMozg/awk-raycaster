@@ -31,6 +31,17 @@ BEGIN {
   health = 100
   moves = 1001
 
+  #key bindings
+  EXIT_KEY = "q"
+  MOVF_KEY = "w"
+  MOVB_KEY = "s"
+  MOVL_KEY = "a"
+  MOVR_KEY = "d"
+  ROTL_KEY = "j"
+  ROTR_KEY = "l"
+  FIRE_KEY = " "
+  UWIN_KEY = "x"
+
   #initial player direction vector
   dirX = 0.0
   dirY = -1.0
@@ -212,27 +223,40 @@ function drawUI(){
     fg_color = getANSICode(8, 1, 0);
     bg_color = getANSICode(5, 0, 1);
   }
-  help = "WASD - move, P - shoot, 1-4 - change color mode"
-  if(inPosition())
-    if (moves != 0)
-      help = help ", WAIT FOR ELEVATOR"
-    else
-      help = help ", PRESS X TO WIN"
+
+  help =  toupper(MOVF_KEY)\
+          toupper(MOVL_KEY)\
+          toupper(MOVB_KEY)\
+          toupper(MOVR_KEY)\
+          " - move"
+  help =  help ", " toupper(ROTL_KEY) "/" toupper(ROTR_KEY)\
+          "- turn left/right (shift = quicker)"
+  if(FIRE_KEY == " ")
+    help = help ", " "spacebar" " - shoot"
   else
-    help = help ", find an elevator and press X"
+    help = help ", "  toupper(FIRE_KEY)  " - shoot"
+  help = help ", 1-4 - change color mode"
+
   info = "ELEVATOR COMING " moves " | HP " health " | SCORE " score " | GUN "
   if(reloadTimeLeft == 0)
     info = info "READY"
   else
     info = info "RELOADING"
+  if(inPosition())
+    if (moves != 0)
+      info = info " | WAIT FOR ELEVATOR"
+    else
+      info = info " | PRESS " toupper(UWIN_KEY) " TO WIN"
+  else
+    info = info " | find an elevator and press " toupper(UWIN_KEY)
+
   while(length(help) < w*2)
     help = help " "
   while(length(info) < w*2)
     info = info " "
-  text = buildPixel(bg_color, fg_color, help);
-  print text
-  text = buildPixel(bg_color, fg_color, info);
-  print text
+
+  print buildPixel(bg_color, fg_color, info)
+  print buildPixel(bg_color, fg_color, help)
 }
 
 
@@ -500,12 +524,20 @@ function main()
     close(cmd)
     system("stty echo")
 
-    if (input == "w" || input == "s"){
-      newPosX = posX - dirX * moveSpeed;
-      newPosY = posY - dirY * moveSpeed;
-      if (input == "w") {
-        newPosX = posX + dirX * moveSpeed;
-        newPosY = posY + dirY * moveSpeed;
+    if (input == MOVF_KEY || input == MOVB_KEY || input == MOVL_KEY || input == MOVR_KEY){
+      newPosX = posX - dirX * moveSpeed
+      newPosY = posY - dirY * moveSpeed
+      if(input == MOVF_KEY){
+        newPosX = posX + dirX * moveSpeed
+        newPosY = posY + dirY * moveSpeed
+      }
+      if(input == MOVL_KEY){
+        newPosX = posX - dirY * moveSpeed
+        newPosY = posY + dirX * moveSpeed
+      }
+      if(input == MOVR_KEY){
+        newPosX = posX + dirY * moveSpeed
+        newPosY = posY - dirX * moveSpeed
       }
       ok = 1;
       for(i in sprite) {
@@ -518,9 +550,14 @@ function main()
         if(worldMap(posX,newPosY) == 0) posY = newPosY;
       }
     }
-    if (input == "a" || input == "d"){
+    if (input == ROTL_KEY ||
+        input == ROTR_KEY ||
+        input == toupper(ROTL_KEY) ||
+        input == toupper(ROTR_KEY)){
       rot = rotSpeed
-      if (input == "d")
+      if(input == toupper(ROTL_KEY) || input == toupper(ROTR_KEY))
+        rot = rot*2
+      if (input == ROTR_KEY || input == toupper(ROTR_KEY))
         rot = -rot
       #both camera direction and camera plane must be rotated
       oldDirX = dirX
@@ -530,7 +567,7 @@ function main()
       planeX = planeX * cos(rot) - planeY * sin(rot)
       planeY = oldPlaneX * sin(rot) + planeY * cos(rot)
     }
-    if(input == "p" && reloadTimeLeft == 0){
+    if(input == FIRE_KEY && reloadTimeLeft == 0){
       shoot()
       reloadTimeLeft = reloadTime
     }
@@ -542,9 +579,9 @@ function main()
       colormode = 3
     if(input == "4")
       colormode = 4
-    if(input == "q")
+    if(input == EXIT_KEY)
       break
-    if(input == "x" && moves == 0 && inPosition()){
+    if(input == UWIN_KEY && moves == 0 && inPosition()){
       moves = -1
       break
     }
