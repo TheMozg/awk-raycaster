@@ -9,13 +9,11 @@ Bring some old-school fun to your terminal! Explore the dungeon and shoot monste
 You need `gawk` version >= `4.0.0`
 
 
-OS X users must install gawk first. The easiest way to do this is to use [Homebrew](http://brew.sh/)
-
-Once [Homebrew](http://brew.sh/) has been installed, run the following commands.
-    brew update
-    	
-    brew install gawk
-
+OS X users must install `gawk` first. The easiest way to do this is to use [Homebrew](http://brew.sh/). Once it has been installed, run the following commands:
+```
+brew update
+brew install gawk
+```
 Your machine will now be ready to run *awkaster*.
 
 #How to play
