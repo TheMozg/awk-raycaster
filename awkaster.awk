@@ -500,12 +500,20 @@ function main()
     close(cmd)
     system("stty echo")
 
-    if (input == "w" || input == "s"){
+    if (input == "w" || input == "s" || input == "a" || input == "d"){
       newPosX = posX - dirX * moveSpeed;
       newPosY = posY - dirY * moveSpeed;
       if (input == "w") {
         newPosX = posX + dirX * moveSpeed;
         newPosY = posY + dirY * moveSpeed;
+      }
+      if (input == "a") {
+        newPosX = posX - dirY * moveSpeed;
+        newPosY = posY + dirX * moveSpeed;
+      }
+      if (input == "d") {
+        newPosX = posX + dirY * moveSpeed;
+        newPosY = posY - dirX * moveSpeed;
       }
       ok = 1;
       for(i in sprite) {
@@ -518,9 +526,9 @@ function main()
         if(worldMap(posX,newPosY) == 0) posY = newPosY;
       }
     }
-    if (input == "a" || input == "d"){
+    if (input == "j" || input == "l"){
       rot = rotSpeed
-      if (input == "d")
+      if (input == "l")
         rot = -rot
       #both camera direction and camera plane must be rotated
       oldDirX = dirX
