@@ -14,6 +14,17 @@ OS X users must install `gawk` first. The easiest way to do this is to use [Home
 brew update
 brew install gawk
 ```
+
+NetBSD users require `gawk`. The easiest way to do it is install it with [pkgin](http://pkgin.net):
+```
+pkgin install gawk
+```
+
+Alternatively install from sources using the [pkgsrc framework](https://pkgsrc.org/):
+```
+cd /usr/pkgsrc/lang/gawk && make install
+```
+
 Your machine will now be ready to run *awkaster*.
 
 #How to play
