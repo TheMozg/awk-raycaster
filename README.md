@@ -25,6 +25,16 @@ Alternatively install from sources using the [pkgsrc framework](https://pkgsrc.o
 cd /usr/pkgsrc/lang/gawk && make install
 ```
 
+
+OpenBSD users require `gawk`. The easiest way to do it is install it with [pkg_add](http://man.openbsd.org/OpenBSD-current/man1/pkg_add.1):
+```
+pkg_add gawk
+```
+
+Alternatively install from sources using the [OpenBSD ports](http://man.openbsd.org/OpenBSD-current/man1/ports.7):
+```
+cd /usr/ports/lang/gawk && make install clean
+```
 Your machine will now be ready to run *awkaster*.
 
 #How to play
