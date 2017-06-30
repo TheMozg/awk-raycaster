@@ -3,7 +3,7 @@ Bring some old-school fun to your terminal! Explore the dungeon and shoot monste
 
 ![Screenshot](screenshot.png)
 
-#Running the game
+# Running the game
 `gawk -f awkaster.awk`
 
 You need `gawk` version >= `4.0.0`
@@ -37,7 +37,7 @@ cd /usr/ports/lang/gawk && make install clean
 ```
 Your machine will now be ready to run *awkaster*.
 
-#How to play
+# How to play
 Your objective is to navigate the map and activate exit elevator, killing hoards of monsters in the process.
 
 Controls:
@@ -47,10 +47,10 @@ Controls:
 * num 1-4 - change color mode
 * x - activate elevator (arrives after 1000 moves)
 
-#Adjusting resolution
+# Adjusting resolution
 By default game resolution is 64x48 "pixels", which are just a pair of ASCII symbols. That means your terminal needs to be at least 128 chars wide. You may change variables `w` and `h` to your liking.
 
-#Game engine
+# Game engine
 Wall rendering is done using ray casting. Monsters and projectiles are added after that as sprites.
 Ray casting is a simple rendering algorithm that doesn't require any 3d modeling or complex computation.
 
