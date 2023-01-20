@@ -38,7 +38,7 @@ cd /usr/ports/lang/gawk && make install clean
 Your machine will now be ready to run *awkaster*.
 
 # How to play
-Your objective is to navigate the map and activate exit elevator, killing hoards of monsters in the process.
+Your objective is to navigate the map and activate exit elevator, killing hordes of monsters in the process.
 
 Controls:
 * WASD - movement
